@@ -1,5 +1,7 @@
 <template>
-  <q-page class="flex flex-center">
+  <q-page class="flex flex-center"
+    v-touch-pan.vertical.prevent.mouse="handlePan"
+>
     <div class="row">
       <q-input
         standout
@@ -48,6 +50,13 @@
   };
   const reset = () => {
     data.counter = 0;
+  };
+  const handlePan = (event) => {
+      if (event.delta.y < 0) {
+        increment();
+      } else {
+        decrement();
+      }
   };
 </script>
 
