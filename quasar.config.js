@@ -91,7 +91,8 @@ export default defineConfig((/* ctx */) => {
       // directives: [],
 
       // Quasar plugins
-      plugins: [],
+      plugins: [      'LocalStorage',
+],
     },
 
     // animations: 'all', // --- includes all animations

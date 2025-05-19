@@ -33,13 +33,29 @@
 <script setup>
 //
 /* Imports */
-  import { reactive } from 'vue';
+  import { reactive, watch } from 'vue';
+  import { useQuasar } from 'quasar';
+
+  /* Quasar */
+  const $q = useQuasar();
+
 
   /* Data */
   const data = reactive({
     counter : 40,
     name: 'Counter',
   });
+
+  const localStorageData = $q.localStorage.getItem('data');
+  if (localStorageData) {
+    Object.assign(data, localStorageData);
+  }
+
+  watch(data, value => {
+    $q.localStorage.set('data', value);
+  }, 
+    
+  );
 
   /* Methods */
   const increment = () => {
