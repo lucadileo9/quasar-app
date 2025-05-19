@@ -39,4 +39,10 @@
   /* Potresti voler cambiare anche il colore dell'icona/testo */
   color: rgb(20, 20, 20) !important; /* Esempio: cambia colore dell'icona/testo a bianco */
 }
+
+.q-page {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+}
 </style>
