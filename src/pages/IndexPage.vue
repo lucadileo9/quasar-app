@@ -3,31 +3,50 @@
     <div class="row">
       <q-input
         standout
-        v-model="text"
         label="Counter"
         placeholder="Counter"
         input-class="text-center text-h5"
+        v-model:model-value="data.name"
       />
     </div>
 
     <div class="row full-width">
       <div class="col text-center item-center">
-        <q-btn round color="secondary" icon="remove" size="xl" class="my-hover-button" />
+        <q-btn round color="secondary" icon="remove" size="xl" class="my-hover-button" @click="decrement"/>
       </div>
-      <div class="col text-center text-h2">100</div>
+      <div class="col text-center text-h2">{{ data.counter }}</div>
       <div class="col text-center">
-        <q-btn round color="secondary" icon="add" size="xl" />
+        <q-btn round color="secondary" icon="add" size="xl" @click="increment" />
       </div>
     </div>
 
     <div class="row">
-      <q-btn round icon="restart_alt" class="my-hover-button" color="secondary" size="xl" />
+      <q-btn round icon="restart_alt" class="my-hover-button" color="secondary" size="xl" @click="reset"/>
     </div>
   </q-page>
 </template>
 
 <script setup>
 //
+/* Imports */
+  import { reactive } from 'vue';
+
+  /* Data */
+  const data = reactive({
+    counter : 40,
+    name: 'Counter',
+  });
+
+  /* Methods */
+  const increment = () => {
+    data.counter++;
+  };
+  const decrement = () => {
+    data.counter--;
+  };
+  const reset = () => {
+    data.counter = 0;
+  };
 </script>
 
 <style scoped>
