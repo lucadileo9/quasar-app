@@ -16,7 +16,9 @@
       </div>
       <div class="col text-center text-h2">{{ data.counter }}</div>
       <div class="col text-center">
-        <q-btn round color="secondary" icon="add" size="xl" @click="increment" />
+        <q-btn round color="secondary" icon="add" size="xl" @click="increment"      
+        v-touch-repeat:0:600:50.mouse="increment"
+ />
       </div>
     </div>
 
